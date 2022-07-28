@@ -1,36 +1,47 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class TestCafe {
     public static void main(String[] args) {
-        CafeUtil coffeeApp = new CafeUtil();
-        int reward = coffeeApp.getStreakGoal();
-        System.out.println(reward);
+        CafeUtil cafe = new CafeUtil();
 
-        double[]prices = {13.5,4.3,9.8,20.5,9.0};
-        double total = coffeeApp.getOrderTotal(prices);
-        System.out.println(total);
+        System.out.println("----- Streak Goal Test -----");
+        System.out.printf("Purchases needed by week 10: %s ", cafe.getStreakGoal(10));
 
-        ArrayList<String> items = new ArrayList<String>();
-        items.add("Latte");
-        items.add("Cap");
-        items.add("Drip");
-        coffeeApp.displayMenu(items);
+        System.out.println("----- Order Total Test-----");
+        double[] prices = {10.1, 4.3, 1.0, 8.2};
+        System.out.printf("Order total: %.2f ",cafe.getOrderTotal(prices));
 
+        System.out.println("----- Display Menu Test-----");
+        ArrayList<String> menu = new ArrayList<String>();
+        menu.add("drip coffee");
+        menu.add("cappuccino");
+        menu.add("latte");
+        menu.add("mocha");
+        cafe.displayMenu(menu);
+        System.out.println();
+
+        System.out.println("----- Price Chart -----");
+        cafe.printPriceChart("Columbian Coffee Grounds",2.00,4);
+        System.out.println();
+
+        System.out.println("----- display Menu 2  -----");
+        ArrayList<Double> prices2 = new ArrayList<Double>();
+        prices2.add(1.50);
+        prices2.add(3.50);
+        prices2.add(4.50);
+        prices2.add(3.50);
+        cafe.displayMenu(menu,prices2);
+        System.out.println();
+
+
+
+        System.out.println("----- Add Customer Test-----");
         ArrayList<String> customers = new ArrayList<String>();
-        customers.add("Nathan");
-        customers.add("Roaa");
-        coffeeApp.addCustomer(customers);
-
-        
-
-        
+        cafe.addCustomer(customers);
 
 
 
 
-        
 
-    
     }
 }
